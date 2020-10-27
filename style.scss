@@ -1,0 +1,154 @@
+
+@mixin shadow ($property) {
+  -webkit-box-shadow: $property;
+  -moz-box-shadow: $property;
+  box-shadow: $property;
+
+
+}
+$padding:16px;
+$background: #000 !default;
+$color: #2748b3  !default;
+
+
+
+%properties-shared {border: 1px solid #ccc;
+  padding: 16px;
+  margin: 16px;
+  color: $color;
+  background-color: #000;}
+
+
+body {
+  font: 100% "Space Mono", monospace;
+  color: $color;
+  margin: 0px;
+  padding: 0;
+  background-color: $background;
+  background-image: radial-gradient(
+                  #fff,
+                  rgba(255, 255, 255, 0.2) 2px,
+                  transparent 40px
+  ),
+  radial-gradient(#fff, rgba(255, 255, 255, 0.15) 1px, transparent 30px),
+  radial-gradient(#fff, rgba(255, 255, 255, 0.1) 2px, transparent 40px),
+  radial-gradient(
+                  rgba(255, 255, 255, 0.4),
+                  rgba(255, 255, 255, 0.1) 2px,
+                  transparent 30px
+  );
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  background-attachment: fixed;
+}
+article{
+  display: flex;
+  flex-wrap: wrap;
+
+  section {
+    flex-grow: 1;
+    flex-basis: 45%;
+    border: 1px silver solid;
+
+    @include shadow(
+                            (10px 10px 19px -4px rgba(255, 255, 255, 0.75)));
+
+    padding: $padding;
+    margin: 16px;
+    clear: both;
+    overflow: auto;
+    box-sizing: border-box;
+  }
+
+  section#selling-points {
+    flex-grow: 2;
+    flex-basis: 100%;
+  }
+  pre {
+    background: $background;
+    border: 1px solid #ddd;
+    color: $color;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: $padding;
+    display: block;
+    white-space: pre-wrap;
+  }
+  pre.before {
+    float: left;
+    width: 40%;
+  }
+  pre.after {
+    float: right;
+    width: 40%;
+  }}
+h1,
+h2,
+h6 {
+  color: $color;
+}
+
+h1 {
+  text-align: center;
+}
+
+h6 {
+  text-align: center;
+  font-size: 2em;
+  padding: 2*$padding;
+  margin-bottom: 0px;
+}
+
+.message,
+{
+  @extend %properties-shared;
+}
+
+.success {
+  @extend %properties-shared;
+  background-color: green;
+}
+
+.error {
+  @extend %properties-shared;
+  background-color: red;
+}
+
+.warning {
+  @extend %properties-shared;
+  background-color: orange;
+}
+
+input[type=submit] {
+  display: inline-block;
+  clear: both;
+  width: 200px;
+  text-align: center;
+  background: cadetblue;
+  color: #fff;
+  text-transform: uppercase;
+  border: 1px solid #4C7FEB;
+  padding: 16px 40px;
+  margin: 10px;
+  -webkit-transition: color 0.2s, background-color 0.2s, box-shadow 0.2s, border 0.2s;
+  -moz-transition: color 0.2s, background-color 0.2s, box-shadow 0.2s, border 0.2s;
+  -o-transition: color 0.2s, background-color 0.2s, box-shadow 0.2s, border 0.2s;
+  transition: color 0.2s, background-color 0.2s, box-shadow 0.2s, border 0.2s;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+
+
